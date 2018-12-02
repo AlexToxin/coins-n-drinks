@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Дебаг
+Route::prefix('/debug') -> group(function ()
+{
+    Route::get('/', 'DebugController@home');
+    Route::get('/test/{model}({number})->{function}', 'DebugController@test');
+    Route::get('/{model}', 'DebugController@main'); // всегда последним
+});
