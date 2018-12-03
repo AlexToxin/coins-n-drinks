@@ -25,6 +25,7 @@ class DrinksTableSeeder extends Seeder
 
         DB::table('drinks')->insert([
             'name' => "Coca-cola",
+            'blocked' => true,
             'price' => rand(10,100),
             'created_at' => now()
         ]);

@@ -18,6 +18,7 @@ class CoinsTableSeeder extends Seeder
 
         DB::table('coins')->insert([
             'value' => 2,
+            'blocked' => true,
             'created_at' => now()
         ]);
 

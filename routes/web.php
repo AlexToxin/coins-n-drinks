@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'MainController@main');
+Route::get('/admin', 'AdminController@main');
 
 // API
 Route::prefix('/api') -> group(function ()
@@ -19,6 +20,8 @@ Route::prefix('/api') -> group(function ()
     Route::post('/throwCoin', 'ApiController@throwCoin');
     Route::post('/getDrink', 'ApiController@getDrink');
 });
+
+Auth::routes();
 
 // Дебаг
 Route::prefix('/debug') -> group(function ()
