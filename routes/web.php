@@ -11,8 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'MainController@main');
+
+// API
+Route::prefix('/api') -> group(function ()
+{
+    Route::post('/throwCoin', 'ApiController@throwCoin');
+    Route::post('/getDrink', 'ApiController@getDrink');
 });
 
 // Дебаг
