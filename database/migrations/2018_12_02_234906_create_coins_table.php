@@ -17,6 +17,7 @@ class CreateCoinsTable extends Migration
             $table->increments('id');
             $table->integer('value')->unique();
             $table->boolean('blocked')->default(false);
+            $table->integer('amount')->default(10);
             $table->timestamps();
         });
     }

@@ -40,4 +40,20 @@ class ApiController extends Controller
             return array('text' => "Недостаточно средств", 'value' => $request->session()->get('coins'));
         }
     }
+
+    public function changeCoin(Request $request)
+    {
+        $coin = Coin::findOrFail($request->coin_id);
+        $coin -> blocked = !($coin -> blocked);
+        $coin -> save();
+        return ($coin -> blocked ? 'true' : 'false');
+    }
+
+    public function changeDrink(Request $request)
+    {
+        $drink = Drink::findOrFail($request->drink_id);
+        $drink -> blocked = !($drink -> blocked);
+        $drink -> save();
+        return ($drink -> blocked ? 'true' : 'false');
+    }
 }

@@ -19,9 +19,14 @@ Route::prefix('/api') -> group(function ()
 {
     Route::post('/throwCoin', 'ApiController@throwCoin');
     Route::post('/getDrink', 'ApiController@getDrink');
+    Route::post('/changeCoin', 'ApiController@changeCoin');
+    Route::post('/changeDrink', 'ApiController@changeDrink');
 });
 
-Auth::routes();
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('logout', 'Auth\LoginController@logout');
 
 // Дебаг
 Route::prefix('/debug') -> group(function ()

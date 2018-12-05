@@ -18,6 +18,7 @@ class CreateDrinksTable extends Migration
             $table->string('name')->unique();
             $table->integer('price');
             $table->boolean('blocked')->default(false);
+            $table->integer('amount')->default(10);
             $table->timestamps();
         });
     }
